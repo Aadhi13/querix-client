@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 export default function Dashboard() {
   const dispatch = useDispatch();
   const [days, setDays] = useState(7);
+  const [customDays, setCustomDays] = useState(90);
   const [data, setData] = useState([]);
   const navigate = useNavigate();
   dispatch(getAdminData());
@@ -58,6 +59,11 @@ export default function Dashboard() {
     );
   }, []);
 
+  // Custom Days input handling
+  const handleCustomDays = ({ currentTarget: input }) => {
+        setCustomDays(input.value);
+    };
+
 
   return (
     <div>
@@ -73,6 +79,9 @@ export default function Dashboard() {
                   <button className={`${days == 10 ? 'bg-[#ffc107] text-black' : 'bg-[#000000] hover:bg-[#ffc107] hover:text-black'} py-1 px-1.5 rounded-md font-medium`} onClick={() => setDays(10)}>10</button>
                   <button className={`${days == 30 ? 'bg-[#ffc107] text-black' : 'bg-[#000000] hover:bg-[#ffc107] hover:text-black'} py-1 px-1.5 rounded-md font-medium`} onClick={() => setDays(30)}>30</button>
                   <button className={`${days == 60 ? 'bg-[#ffc107] text-black' : 'bg-[#000000] hover:bg-[#ffc107] hover:text-black'} py-1 px-1.5 rounded-md font-medium`} onClick={() => setDays(60)}>60</button>
+                  <button className={`${days == customDays ? 'bg-[#ffc107] text-black' : 'bg-[#000000] hover:bg-[#ffc107] hover:text-black'} py-1 px-1.5 rounded-md font-medium`} onClick={() => setDays(customDays)}>
+                    <input type="number" id="customDays" placeholder="00" value={customDays} onChange={handleCustomDays} />
+                  </button>
                 </div>
                 <div className="relative z-0">
                   <SimpleLineChart days={days} />
