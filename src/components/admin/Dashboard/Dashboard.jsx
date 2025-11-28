@@ -80,7 +80,7 @@ export default function Dashboard() {
                   <button className={`${days == 30 ? 'bg-[#ffc107] text-black' : 'bg-[#000000] hover:bg-[#ffc107] hover:text-black'} py-1 px-1.5 rounded-md font-medium`} onClick={() => setDays(30)}>30</button>
                   <button className={`${days == 60 ? 'bg-[#ffc107] text-black' : 'bg-[#000000] hover:bg-[#ffc107] hover:text-black'} py-1 px-1.5 rounded-md font-medium`} onClick={() => setDays(60)}>60</button>
                   <button className={`${days == customDays ? 'bg-[#ffc107] text-black' : 'bg-[#000000] hover:bg-[#ffc107] hover:text-black'} py-1 px-1.5 rounded-md font-medium w-8`} onClick={() => setDays(customDays)}>
-                    <input type="number" id="customDays" placeholder="00" value={customDays} onChange={handleCustomDays} className={`${days == 30 ? 'bg-[#ffc107] text-black' : 'bg-[#000000] hover:bg-[#ffc107] hover:text-black w-8'} py-1 px-1.5 rounded-md font-medium`}/>
+                    <input type="number" id="customDays" placeholder="00" value={customDays} onChange={handleCustomDays}/>
                   </button>
                 </div>
                 <div className="relative z-0">
